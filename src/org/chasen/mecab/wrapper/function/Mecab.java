@@ -11,11 +11,15 @@ public class Mecab extends Function {
         return getMecab().mecab_do(args.length, args);
     }
     
+    public static mecab_t mecab_new(){
+        return getMecab().mecab_new2("");
+    }
+    
     public static mecab_t mecab_new(String...args){
         return getMecab().mecab_new(args.length, args);
     }
     
-    public static mecab_t mecab_new2(String arg){
+    public static mecab_t mecab_new(String arg){
         return getMecab().mecab_new2(arg);
     }
     
@@ -35,11 +39,11 @@ public class Mecab extends Function {
         return getMecab().mecab_sparse_tostr(mecab, str);
     }
     
-    public static String mecab_sparse_tostr2(mecab_t mecab, String str, long len){
+    public static String mecab_sparse_tostr(mecab_t mecab, String str, long len){
         return getMecab().mecab_sparse_tostr2(mecab, str, new size_t(len));
     }
     
-    public static String mecab_sparse_tostr3(mecab_t mecab, String str, long len, String ostr, long olen){
+    public static String mecab_sparse_tostr(mecab_t mecab, String str, long len, String ostr, long olen){
         return getMecab().mecab_sparse_tostr3(mecab, str, new size_t(len), ostr, new size_t(olen));
     }
     
@@ -47,7 +51,7 @@ public class Mecab extends Function {
         return getMecab().mecab_sparse_tonode(mecab, str);
     }
     
-    public static mecab_node_t mecab_sparse_tonode2(mecab_t mecab, String str, long length){
+    public static mecab_node_t mecab_sparse_tonode(mecab_t mecab, String str, long length){
         return getMecab().mecab_sparse_tonode2(mecab, str, new size_t(length));
     }
     
@@ -55,11 +59,11 @@ public class Mecab extends Function {
         return getMecab().mecab_nbest_sparse_tostr(mecab, new size_t(N), str);
     }
     
-    public static String mecab_nbest_sparse_tostr2(mecab_t mecab, long N, String str, long len){
+    public static String mecab_nbest_sparse_tostr(mecab_t mecab, long N, String str, long len){
         return getMecab().mecab_nbest_sparse_tostr2(mecab, new size_t(N), str, new size_t(len));
     }
     
-    public static String mecab_nbest_sparse_tostr3(mecab_t mecab, long N, String str, long len, String ostr, long olen){
+    public static String mecab_nbest_sparse_tostr(mecab_t mecab, long N, String str, long len, String ostr, long olen){
         return getMecab().mecab_nbest_sparse_tostr3(mecab, new size_t(N), str, new size_t(len), ostr, new size_t(olen));
     }
     
@@ -67,7 +71,7 @@ public class Mecab extends Function {
         return getMecab().mecab_nbest_init(mecab, str);
     }
     
-    public static int mecab_nbest_init2(mecab_t mecab, String str, long len){
+    public static int mecab_nbest_init(mecab_t mecab, String str, long len){
         return getMecab().mecab_nbest_init2(mecab, str, new size_t(len));
     }
     
@@ -75,7 +79,7 @@ public class Mecab extends Function {
         return getMecab().mecab_nbest_next_tostr(mecab);
     }
     
-    public static String mecab_nbest_next_tostr2(mecab_t mecab, String ostr, long olen){
+    public static String mecab_nbest_next_tostr(mecab_t mecab, String ostr, long olen){
         return getMecab().mecab_nbest_next_tostr2(mecab, ostr, new size_t(olen));
     }
     

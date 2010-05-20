@@ -225,13 +225,13 @@ public interface mecab {
     
     public static class mecab_path_t extends Structure {
         // C type: struct mecab_learner_node_t*
-        public mecab_node_t.ByReference rnode;
+        public mecab_learner_node_t.ByReference rnode;
         // C type: struct mecab_learner_path_t*
-        public mecab_path_t.ByReference rnext;
+        public mecab_learner_path_t.ByReference rnext;
         // C type: struct mecab_learner_node_t*
-        public mecab_node_t.ByReference lnode;
+        public mecab_learner_node_t.ByReference lnode;
         // C type: struct mecab_learner_path_t*
-        public mecab_path_t.ByReference lnext;
+        public mecab_learner_path_t.ByReference lnext;
         // C type: int
         public int cost;
         // C type: const float
@@ -341,9 +341,9 @@ public interface mecab {
         // C type: struct mecab_learner_node_t*
         public mecab_learner_node_t.ByReference anext;
         // C type: const char*
-        public Pointer surface;
+        public String surface;
         // C type: const char*
-        public Pointer feature;
+        public String feature;
         // C type: unsigned int
         public int id;
         // C type: unsigned short
@@ -356,11 +356,11 @@ public interface mecab {
         public short lcAttr;
         // C type: unsigned short
         public short posid;
-        // C type: unsigned chart
+        // C type: unsigned char
         public byte char_type;
-        // C type: unsigned chart
+        // C type: unsigned char
         public byte stat;
-        // C type: unsigned chart
+        // C type: unsigned char
         public byte isbest;
         // C type: double
         public double alpha;
