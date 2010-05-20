@@ -39,12 +39,18 @@ public class Main {
             {
                 String str = "本日は晴天なり";
                 mecab_node_t node_t = mecab.mecab_sparse_tonode(mecab_t, str);
-                System.out.println(node_t.feature);                             // BOS/EOS,*,*,*,*,*,*,*,*
-                System.out.println(node_t.next.feature);                        // 名詞,副詞可能,*,*,*,*,本日,ホンジツ,ホンジツ
-                System.out.println(node_t.next.next.feature);                   // 助詞,係助詞,*,*,*,*,は,ハ,ワ
-                System.out.println(node_t.next.next.next.feature);              // 名詞,一般,*,*,*,*,晴天,セイテン,セイテン
-                System.out.println(node_t.next.next.next.next.feature);         // 助動詞,*,*,*,文語・ナリ,基本形,なり,ナリ,ナリ
-                System.out.println(node_t.next.next.next.next.next.feature);    // BOS/EOS,*,*,*,*,*,*,*,*
+                System.out.println("1=>" + node_t.feature);
+                System.out.println("2=>" + node_t.next.feature);
+                System.out.println("3=>" + node_t.next.next.feature);
+                System.out.println("4=>" + node_t.next.next.next.feature);
+                System.out.println("5=>" + node_t.next.next.next.next.feature);
+                System.out.println("6=>" + node_t.next.next.next.next.next.feature);
+                // 1=>BOS/EOS,*,*,*,*,*,*,*,*
+                // 2=>名詞,副詞可能,*,*,*,*,本日,ホンジツ,ホンジツ
+                // 3=>助詞,係助詞,*,*,*,*,は,ハ,ワ
+                // 4=>名詞,一般,*,*,*,*,晴天,セイテン,セイテン
+                // 5=>助動詞,*,*,*,文語・ナリ,基本形,なり,ナリ,ナリ
+                // 6=>BOS/EOS,*,*,*,*,*,*,*,*
             }
         } finally {
             mecab.mecab_destroy(mecab_t);
