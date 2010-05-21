@@ -61,7 +61,13 @@ public class Node {
     }
     
     public String getSurface(){
-        return node.surface();
+        String surface = node.surface();
+        short length = node.length();
+        byte[] surfaceBytes = surface.getBytes();
+        
+        byte[] result = new byte[length];
+        System.arraycopy(surfaceBytes, 0, result, 0, length);
+        return new String(result);
     }
     
     public String getFeature(){
