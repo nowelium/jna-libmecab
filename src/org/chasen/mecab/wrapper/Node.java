@@ -1,6 +1,7 @@
 package org.chasen.mecab.wrapper;
 
 import org.chasen.mecab.mecab.mecab_node_t;
+import org.chasen.mecab.mecab.mecab_path_t;
 import org.chasen.mecab.wrapper.type.NodeType;
 
 public class Node {
@@ -12,113 +13,119 @@ public class Node {
     }
     
     public Node getPrev(){
-        if(null == node.prev){
+        mecab_node_t.ByReference prev = node.prev();
+        if(null == prev){
             return null;
         }
-        return new Node(node.prev);
+        return new Node(prev);
     }
     
     public Node getNext(){
-        if(null == node.next){
+        mecab_node_t.ByReference next = node.next();
+        if(null == next){
             return null;
         }
-        return new Node(node.next);
+        return new Node(next);
     }
     
     public Node getENext(){
-        if(null == node.enext){
+        mecab_node_t.ByReference enext = node.enext();
+        if(null == enext){
             return null;
         }
-        return new Node(node.enext);
+        return new Node(enext);
     }
     
     public Node getBNext(){
-        if(null == node.bnext){
+        mecab_node_t.ByReference bnext = node.bnext();
+        if(null == bnext){
             return null;
         }
-        return new Node(node.bnext);
+        return new Node(bnext);
     }
     
     public Path getRpath(){
-        if(null == node.rpath){
+        mecab_path_t.ByReference rpath = node.rpath();
+        if(null == rpath){
             return null;
         }
-        return new Path(node.rpath);
+        return new Path(rpath);
     }
     
     public Path getLPath(){
-        if(null == node.lpath){
+        mecab_path_t.ByReference lpath = node.lpath();
+        if(null == lpath){
             return null;
         }
-        return new Path(node.lpath);
+        return new Path(lpath);
     }
     
     public String getSurface(){
-        return node.surface;
+        return node.surface();
     }
     
     public String getFeature(){
-        return node.feature;
+        return node.feature();
     }
     
     public int getId(){
-        return node.id;
+        return node.id();
     }
     
     public short getLength(){
-        return node.length;
+        return node.length();
     }
 
     public short getRLength() {
-        return node.rlength;
+        return node.rlength();
     }
     
     public short getRcAttr() {
-        return node.rcAttr;
+        return node.rcAttr();
     }
 
     public short getLcAttr() {
-        return node.lcAttr;
+        return node.lcAttr();
     }
 
     public short getPosid() {
-        return node.posid;
+        return node.posid();
     }
 
     public byte getCharType() {
-        return node.char_type;
+        return node.char_type();
     }
 
     public NodeType getStat() {
-        return NodeType.get(node.stat);
+        return NodeType.get(node.stat());
     }
 
     public short getIsBest() {
-        return node.isbest;
+        return node.isbest();
     }
 
     public int getSentenceLength() {
-        return node.sentence_length;
+        return node.sentence_length();
     }
 
     public float getAlpha() {
-        return node.alpha;
+        return node.alpha();
     }
 
     public float getBeta() {
-        return node.beta;
+        return node.beta();
     }
 
     public float getProb() {
-        return node.prob;
+        return node.prob();
     }
 
     public short getWCost() {
-        return node.wcost;
+        return node.wcost();
     }
 
     public long getCost() {
-        return node.cost;
+        return node.cost();
     }
 
 }

@@ -1,5 +1,6 @@
 package org.chasen.mecab.wrapper;
 
+import org.chasen.mecab.mecab.mecab_learner_node_t;
 import org.chasen.mecab.mecab.mecab_learner_path_t;
 
 public class LearnerPath {
@@ -11,39 +12,43 @@ public class LearnerPath {
     }
     
     public LearnerNode getRNode() {
-        if(null == path.rnode){
+        mecab_learner_node_t.ByReference rnode = path.rnode();
+        if(null == rnode){
             return null;
         }
-        return new LearnerNode(path.rnode);
+        return new LearnerNode(rnode);
     }
 
     public LearnerPath getRNext() {
-        if(null == path.rnext){
+        mecab_learner_path_t.ByReference rnext = path.rnext();
+        if(null == rnext){
             return null;
         }
-        return new LearnerPath(path.rnext);
+        return new LearnerPath(rnext);
     }
 
     public LearnerNode getLNode() {
-        if(null == path.lnode){
+        mecab_learner_node_t.ByReference lnode = path.lnode();
+        if(null == lnode){
             return null;
         }
-        return new LearnerNode(path.lnode);
+        return new LearnerNode(lnode);
     }
 
     public LearnerPath getLNext() {
-        if(null == path.lnext){
+        mecab_learner_path_t.ByReference lnext = path.lnext();
+        if(null == lnext){
             return null;
         }
-        return new LearnerPath(path.lnext);
+        return new LearnerPath(lnext);
     }
 
     public double getCost() {
-        return path.cost;
+        return path.cost();
     }
     
     public int getFVector() {
-        return path.fvector.getValue();
+        return path.fvector().getValue();
     }
 
 }

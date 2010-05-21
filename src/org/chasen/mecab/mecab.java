@@ -172,22 +172,6 @@ public interface mecab {
      */
     public int mecab_test_gen(int argc, String[] argv);
     
-    /*
-    public static class mecab_t extends Structure {
-        // C type: int (in libmecab.cpp)
-        public int allocated;
-        // C type: MeCab::Taggr*(in libmecab.cpp)
-        public Pointer ptr;
-        
-        public static class ByReference extends mecab_t implements Structure.ByReference {
-            
-        }
-        public static class ByValue extends mecab_t implements Structure.ByValue {
-            
-        }
-    }
-    */
-    
     public static class mecab_t extends PointerType {
         public mecab_t() {
             super();
@@ -215,6 +199,43 @@ public interface mecab {
         // C type: struct mecab_dictionary_info_t
         public mecab_dictionary_info_t.ByReference next;
         
+        public mecab_dictionary_info_t(){
+            super();
+            setAutoSynch(false);
+        }
+        public String filename(){
+            readField("filename");
+            return filename;
+        }
+        public String charset(){
+            readField("charset");
+            return charset;
+        }
+        public int size(){
+            readField("size");
+            return size;
+        }
+        public int type(){
+            readField("type");
+            return type;
+        }
+        public int lsize(){
+            readField("lsize");
+            return lsize;
+        }
+        public int rsize(){
+            readField("rsize");
+            return rsize;
+        }
+        public short version(){
+            readField("version");
+            return version;
+        }
+        public mecab_dictionary_info_t.ByReference next(){
+            readField("next");
+            return next;
+        }
+        
         public static class ByReference extends mecab_dictionary_info_t implements Structure.ByReference {
             
         }
@@ -237,6 +258,35 @@ public interface mecab {
         // C type: const float
         public float prob;
         
+        public mecab_path_t(){
+            super();
+            setAutoSynch(false);
+        }
+        public mecab_learner_node_t.ByReference rnode(){
+            readField("rnode");
+            return rnode;
+        }
+        public mecab_learner_path_t.ByReference rnext(){
+            readField("rnext");
+            return rnext;
+        }
+        public mecab_learner_node_t.ByReference lnode(){
+            readField("lnode");
+            return lnode;
+        }
+        public mecab_learner_path_t.ByReference lnext(){
+            readField("lnext");
+            return lnext;
+        }
+        public int cost(){
+            readField("cost");
+            return cost;
+        }
+        public float prob(){
+            readField("prob");
+            return prob;
+        }
+        
         public static class ByReference extends mecab_path_t implements Structure.ByReference {
             
         }
@@ -258,6 +308,35 @@ public interface mecab {
         public double cost;
         // C type: const int*
         public IntByReference fvector;
+        
+        public mecab_learner_path_t(){
+            super();
+            setAutoSynch(false);
+        }
+        public mecab_learner_node_t.ByReference rnode(){
+            readField("rnode");
+            return rnode;
+        }
+        public mecab_learner_path_t.ByReference rnext(){
+            readField("rnext");
+            return rnext;
+        }
+        public mecab_learner_node_t.ByReference lnode(){
+            readField("lnode");
+            return lnode;
+        }
+        public mecab_learner_path_t.ByReference lnext(){
+            readField("lnext");
+            return lnext;
+        }
+        public double cost(){
+            readField("cost");
+            return cost;
+        }
+        public IntByReference fvector(){
+            readField("fvector");
+            return fvector;
+        }
         
         public static class ByReference extends mecab_learner_path_t implements Structure.ByReference {
             
@@ -319,6 +398,111 @@ public interface mecab {
         // C type: long
         public long cost;
         
+        public mecab_node_t(){
+            super();
+            setAutoSynch(false);
+        }
+        public mecab_node_t.ByReference prev(){
+            readField("prev");
+            return prev;
+        }
+        public mecab_node_t.ByReference next(){
+            readField("next");
+            return next;
+        }
+        public mecab_node_t.ByReference enext(){
+            readField("enext");
+            return enext;
+        }
+        public mecab_node_t.ByReference bnext(){
+            readField("bnext");
+            return bnext;
+        }
+        public mecab_path_t.ByReference rpath(){
+            readField("rpath");
+            return rpath;
+        }
+        public mecab_path_t.ByReference lpath(){
+            readField("lpath");
+            return lpath;
+        }
+        public PointerByReference begin_node_list(){
+            readField("begin_node_list");
+            return begin_node_list;
+        }
+        public PointerByReference end_node_list(){
+            readField("end_node_list");
+            return end_node_list;
+        }
+        public String surface(){
+            readField("surface");
+            return surface;
+        }
+        public String feature(){
+            readField("feature");
+            return feature;
+        }
+        public int id(){
+            readField("id");
+            return id;
+        }
+        public short length(){
+            readField("length");
+            return length;
+        }
+        public short rlength(){
+            readField("rlength");
+            return rlength;
+        }
+        public short rcAttr(){
+            readField("rcAttr");
+            return rcAttr;
+        }
+        public short lcAttr(){
+            readField("lcAttr");
+            return lcAttr;
+        }
+        public short posid(){
+            readField("posid");
+            return posid;
+        }
+        public byte char_type(){
+            readField("char_type");
+            return char_type;
+        }
+        public byte stat(){
+            readField("stat");
+            return stat;
+        }
+        public byte isbest(){
+            readField("isbest");
+            return isbest;
+        }
+        public int sentence_length(){
+            readField("sentence_length");
+            return sentence_length;
+        }
+        public float alpha(){
+            readField("alpha");
+            return alpha;
+        }
+        public float beta(){
+            readField("beta");
+            return beta;
+        }
+        public float prob(){
+            readField("prob");
+            return prob;
+        }
+        public short wcost(){
+            readField("wcost");
+            return wcost;
+        }
+        public long cost(){
+            readField("cost");
+            return cost;
+        }
+        
         public static class ByReference extends mecab_node_t implements Structure.ByReference {
         }
         public static class ByValue extends mecab_node_t implements Structure.ByValue {
@@ -374,6 +558,107 @@ public interface mecab {
         public double cost;
         // C type: const int*
         public IntByReference fvector;
+        
+        public mecab_learner_node_t(){
+            super();
+            setAutoSynch(false);
+        }
+        public mecab_learner_node_t.ByReference prev(){
+            readField("prev");
+            return prev;
+        }
+        public mecab_learner_node_t.ByReference next(){
+            readField("next");
+            return next;
+        }
+        public mecab_learner_node_t.ByReference enext(){
+            readField("enext");
+            return enext;
+        }
+        public mecab_learner_node_t.ByReference bnext(){
+            readField("bnext");
+            return bnext;
+        }
+        public mecab_learner_path_t.ByReference rpath(){
+            readField("rpath");
+            return rpath;
+        }
+        public mecab_learner_path_t.ByReference lpath(){
+            readField("lpath");
+            return lpath;
+        }
+        public mecab_learner_node_t.ByReference anext(){
+            readField("anext");
+            return anext;
+        }
+        public String surface(){
+            readField("surface");
+            return surface;
+        }
+        public String feature(){
+            readField("feature");
+            return feature;
+        }
+        public int id(){
+            readField("id");
+            return id;
+        }
+        public short length(){
+            readField("length");
+            return length;
+        }
+        public short rlength(){
+            readField("rlength");
+            return rlength;
+        }
+        public short rcAttr(){
+            readField("rcAttr");
+            return rcAttr;
+        }
+        public short lcAttr(){
+            readField("lcAttr");
+            return lcAttr;
+        }
+        public short posid(){
+            readField("posid");
+            return posid;
+        }
+        public byte char_type(){
+            readField("char_type");
+            return char_type;
+        }
+        public byte stat(){
+            readField("stat");
+            return stat;
+        }
+        public byte isbest(){
+            readField("isbest");
+            return isbest;
+        }
+        public double alpha(){
+            readField("alpha");
+            return alpha;
+        }
+        public double beta(){
+            readField("beta");
+            return beta;
+        }
+        public short wcost2(){
+            readField("wcost2");
+            return wcost2;
+        }
+        public double wcost(){
+            readField("wcost");
+            return wcost;
+        }
+        public double cost(){
+            readField("cost");
+            return cost;
+        }
+        public IntByReference fvector(){
+            readField("fvector");
+            return fvector;
+        }
         
         public static class ByReference extends mecab_learner_node_t implements Structure.ByReference {
             

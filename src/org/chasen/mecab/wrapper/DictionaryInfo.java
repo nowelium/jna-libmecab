@@ -12,38 +12,39 @@ public class DictionaryInfo {
     }
     
     public String getFileName(){
-        return dictionary.filename;
+        return dictionary.filename();
     }
     
     public String getCharset(){
-        return dictionary.charset;
+        return dictionary.charset();
     }
     
     public int getSize(){
-        return dictionary.size;
+        return dictionary.size();
     }
     
     public DictionaryType getType(){
-        return DictionaryType.get(dictionary.type);
+        return DictionaryType.get(dictionary.type());
     }
     
     public int getLSize(){
-        return dictionary.lsize;
+        return dictionary.lsize();
     }
     
     public int getRSize(){
-        return dictionary.rsize;
+        return dictionary.rsize();
     }
     
     public short getVersion(){
-        return dictionary.version;
+        return dictionary.version();
     }
     
     public DictionaryInfo getNext(){
-        if(null == dictionary.next){
+        mecab_dictionary_info_t.ByReference next = dictionary.next();
+        if(null == next){
             return null;
         }
-        return new DictionaryInfo(dictionary.next);
+        return new DictionaryInfo(next);
     }
     
 }
