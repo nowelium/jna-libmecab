@@ -12,57 +12,85 @@ public class Node {
         this.node = node;
     }
     
+    protected mecab_node_t.ByReference prev = null;
     public Node getPrev(){
-        mecab_node_t.ByReference prev = node.prev();
+        if(null == prev){
+            prev = node.prev();
+        }
+        
         if(null == prev){
             return null;
         }
         return new Node(prev);
     }
     
+    protected mecab_node_t.ByReference next = null;
     public Node getNext(){
-        mecab_node_t.ByReference next = node.next();
+        if(null == next){
+            next = node.next();
+        }
+        
         if(null == next){
             return null;
         }
         return new Node(next);
     }
     
+    protected mecab_node_t.ByReference enext = null;
     public Node getENext(){
-        mecab_node_t.ByReference enext = node.enext();
+        if(null == enext){
+            enext = node.enext();
+        }
+        
         if(null == enext){
             return null;
         }
         return new Node(enext);
     }
     
+    protected mecab_node_t.ByReference bnext = null;
     public Node getBNext(){
-        mecab_node_t.ByReference bnext = node.bnext();
+        if(null == bnext){
+            bnext = node.bnext();
+        }
+        
         if(null == bnext){
             return null;
         }
         return new Node(bnext);
     }
     
+    protected mecab_path_t.ByReference rpath = null;
     public Path getRpath(){
-        mecab_path_t.ByReference rpath = node.rpath();
+        if(null == rpath){
+            rpath = node.rpath();
+        }
+        
         if(null == rpath){
             return null;
         }
         return new Path(rpath);
     }
     
+    protected mecab_path_t.ByReference lpath = null;
     public Path getLPath(){
-        mecab_path_t.ByReference lpath = node.lpath();
+        if(null == lpath){
+            lpath = node.lpath();
+        }
+        
         if(null == lpath){
             return null;
         }
         return new Path(lpath);
     }
     
+    protected String surface = null;
     public String getSurface(){
-        String surface = node.surface();
-        short length = node.length();
+        if(null == surface){
+            surface = node.surface();
+        }
+        
+        short length = getLength();
         byte[] surfaceBytes = surface.getBytes();
         
         byte[] result = new byte[length];
@@ -70,68 +98,132 @@ public class Node {
         return new String(result);
     }
     
+    protected String feature = null;
     public String getFeature(){
-        return node.feature();
+        if(null != feature){
+            return feature;
+        }
+        return feature = node.feature();
     }
     
+    protected int id = -1;
     public int getId(){
-        return node.id();
+        if(-1 != id){
+            return id;
+        }
+        return id = node.id();
     }
     
+    protected short length = -1;
     public short getLength(){
-        return node.length();
+        if(-1 != length){
+            return length;
+        }
+        return length = node.length();
     }
 
+    protected short rlength = -1;
     public short getRLength() {
-        return node.rlength();
+        if(-1 != rlength){
+            return rlength;
+        }
+        return rlength = node.rlength();
     }
     
+    protected short rcAttr = -1;
     public short getRcAttr() {
-        return node.rcAttr();
+        if(-1 != rcAttr){
+            return rcAttr;
+        }
+        return rcAttr = node.rcAttr();
     }
 
+    protected short lcAttr = -1;
     public short getLcAttr() {
-        return node.lcAttr();
+        if(-1 != lcAttr){
+            return lcAttr;
+        }
+        return lcAttr = node.lcAttr();
     }
 
+    protected short posid = -1;
     public short getPosid() {
-        return node.posid();
+        if(-1 != posid){
+            return posid;
+        }
+        return posid = node.posid();
     }
 
+    protected byte char_type = -1;
     public byte getCharType() {
-        return node.char_type();
+        if(-1 != char_type){
+            return char_type;
+        }
+        return char_type = node.char_type();
     }
 
+    protected NodeType stat = null;
     public NodeType getStat() {
-        return NodeType.get(node.stat());
+        if(null != stat){
+            return stat;
+        }
+        return stat = NodeType.get(node.stat());
     }
 
+    protected short isbest = -1;
     public short getIsBest() {
-        return node.isbest();
+        if(-1 != isbest){
+            return isbest;
+        }
+        return isbest = node.isbest();
     }
 
+    protected int sentence_length = -1;
     public int getSentenceLength() {
-        return node.sentence_length();
+        if(-1 != sentence_length){
+            return sentence_length;
+        }
+        return sentence_length = node.sentence_length();
     }
 
+    protected float alpha = -1;
     public float getAlpha() {
-        return node.alpha();
+        if(-1 != alpha){
+            return alpha;
+        }
+        return alpha = node.alpha();
     }
 
+    protected float beta = -1;
     public float getBeta() {
-        return node.beta();
+        if(-1 != beta){
+            return beta;
+        }
+        return beta = node.beta();
     }
 
+    protected float prob = -1;
     public float getProb() {
-        return node.prob();
+        if(-1 != prob){
+            return prob;
+        }
+        return prob = node.prob();
     }
 
+    protected short wcost = -1;
     public short getWCost() {
-        return node.wcost();
+        if(-1 != wcost){
+            return wcost;
+        }
+        return wcost = node.wcost();
     }
 
+    protected long cost = -1;
     public long getCost() {
-        return node.cost();
+        if(-1 != cost){
+            return cost;
+        }
+        return cost = node.cost();
     }
 
 }

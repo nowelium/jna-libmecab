@@ -11,36 +11,68 @@ public class DictionaryInfo {
         this.dictionary = dictionary;
     }
     
+    protected String filename = null;
     public String getFileName(){
-        return dictionary.filename();
+        if(null != filename){
+            return filename;
+        }
+        return filename = dictionary.filename();
     }
     
+    protected String charset = null;
     public String getCharset(){
-        return dictionary.charset();
+        if(null != charset){
+            return charset;
+        }
+        return charset = dictionary.charset();
     }
     
+    protected int size = -1;
     public int getSize(){
-        return dictionary.size();
+        if(-1 != size){
+            return size;
+        }
+        return size = dictionary.size();
     }
     
+    protected DictionaryType type = null;
     public DictionaryType getType(){
-        return DictionaryType.get(dictionary.type());
+        if(null != type){
+            return type;
+        }
+        return type = DictionaryType.get(dictionary.type());
     }
     
+    protected int lsize = -1;
     public int getLSize(){
-        return dictionary.lsize();
+        if(-1 != lsize){
+            return lsize;
+        }
+        return lsize = dictionary.lsize();
     }
     
+    protected int rsize = -1;
     public int getRSize(){
-        return dictionary.rsize();
+        if(-1 != rsize){
+            return rsize;
+        }
+        return rsize = dictionary.rsize();
     }
     
+    protected short version = -1;
     public short getVersion(){
-        return dictionary.version();
+        if(-1 != version){
+            return version;
+        }
+        return version = dictionary.version();
     }
     
+    protected mecab_dictionary_info_t.ByReference next = null;
     public DictionaryInfo getNext(){
-        mecab_dictionary_info_t.ByReference next = dictionary.next();
+        if(null == next){
+            next = dictionary.next();
+        }
+        
         if(null == next){
             return null;
         }

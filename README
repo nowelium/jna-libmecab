@@ -7,6 +7,9 @@ mecab for JNA(Java Native Access)
 example
 ----
 
+parse string
+========
+
   public class Main {
     
     static {
@@ -61,3 +64,48 @@ example
     }
   }
 
+node iteration
+========
+
+  public class Iteration {
+    static {
+        System.setProperty("jna.encoding", "UTF-8");
+    }
+    public static void main(String...args){
+        Tagger tagger = Tagger.create("-r /opt/local/etc/mecabrc");
+        
+        // default NodeIterator
+        NodeIterator it = tagger.iterator("庭には二羽ニワトリがいる。");
+        while(it.hasNext()){
+            Node node = it.next();
+            System.out.println(node.getSurface() + ":" + node.getFeature());
+        }
+        //
+        // 庭:名詞,一般,*,*,*,*,庭,ニワ,ニワ
+        // に:助詞,格助詞,一般,*,*,*,に,ニ,ニ
+        // は:助詞,係助詞,*,*,*,*,は,ハ,ワ
+        // 二:名詞,数,*,*,*,*,二,ニ,ニ
+        // 羽:名詞,接尾,助数詞,*,*,*,羽,バ,バ
+        // ニワトリ:名詞,一般,*,*,*,*,ニワトリ,ニワトリ,ニワトリ
+        // が:助詞,格助詞,一般,*,*,*,が,ガ,ガ
+        // いる:動詞,自立,*,*,一段,基本形,いる,イル,イル
+        // 。:記号,句点,*,*,*,*,。,。,。
+        //
+        
+        System.out.println("---------------");
+        
+        // iteratable NodeIterator
+        for(Node node: tagger.iterator("すもももももももものうち")){
+            System.out.println(node.getSurface() + ":" + node.getFeature());
+        }
+        //
+        // すもも:名詞,一般,*,*,*,*,すもも,スモモ,スモモ
+        // も:助詞,係助詞,*,*,*,*,も,モ,モ
+        // もも:名詞,一般,*,*,*,*,もも,モモ,モモ
+        // も:助詞,係助詞,*,*,*,*,も,モ,モ
+        // もも:名詞,一般,*,*,*,*,もも,モモ,モモ
+        // の:助詞,連体化,*,*,*,*,の,ノ,ノ
+        // うち:名詞,非自立,副詞可能,*,*,*,うち,ウチ,ウチ
+        //
+    }
+  }

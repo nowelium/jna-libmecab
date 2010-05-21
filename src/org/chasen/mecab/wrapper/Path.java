@@ -12,44 +12,68 @@ public class Path {
         this.path = path;
     }
     
+    protected mecab_learner_node_t.ByReference rnode = null;
     public LearnerNode getRNode() {
-        mecab_learner_node_t.ByReference rnode = path.rnode();
+        if(null == rnode){
+            rnode = path.rnode();
+        }
+        
         if(null == rnode){
             return null;
         }
         return new LearnerNode(rnode);
     }
 
+    protected mecab_learner_path_t.ByReference rnext = null;
     public LearnerPath getRNext() {
-        mecab_learner_path_t.ByReference rnext = path.rnext();
+        if(null == rnext){
+            rnext = path.rnext();
+        }
+        
         if(null == rnext){
             return null;
         }
         return new LearnerPath(rnext);
     }
 
+    protected mecab_learner_node_t.ByReference lnode = null;
     public LearnerNode getLNode() {
-        mecab_learner_node_t.ByReference lnode = path.lnode();
+        if(null == lnode){
+            lnode = path.lnode();
+        }
+        
         if(null == lnode){
             return null;
         }
         return new LearnerNode(lnode);
     }
 
+    protected mecab_learner_path_t.ByReference lnext = null;
     public LearnerPath getLNext() {
-        mecab_learner_path_t.ByReference lnext = path.lnext();
+        if(null == lnext){
+            lnext = path.lnext();
+        }
+        
         if(null == lnext){
             return null;
         }
         return new LearnerPath(lnext);
     }
 
+    protected int cost = -1;
     public int getCost() {
-        return path.cost();
+        if(-1 != cost){
+            return cost;
+        }
+        return cost = path.cost();
     }
 
+    protected float prob = -1;
     public float getProb() {
-        return path.prob();
+        if(-1 != prob){
+            return prob;
+        }
+        return prob = path.prob();
     }
     
 }
