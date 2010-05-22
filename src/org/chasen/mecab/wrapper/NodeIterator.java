@@ -4,6 +4,9 @@ import java.util.Iterator;
 
 import org.chasen.mecab.wrapper.type.NodeType;
 
+/**
+ * @author nowel
+ */
 public class NodeIterator<N, P> implements Iterator<MecabNode<N, P>>, Iterable<MecabNode<N, P>> {
 
     protected static class defaultFilter<N, P> implements NodeFilter<N, P> {

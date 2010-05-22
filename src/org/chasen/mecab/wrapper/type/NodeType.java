@@ -2,6 +2,9 @@ package org.chasen.mecab.wrapper.type;
 
 import org.chasen.mecab.mecab;
 
+/**
+ * @author nowel
+ */
 public enum NodeType implements Type<NodeType> {
 
     NOR_NODE(mecab.MECAB_NOR_NODE),

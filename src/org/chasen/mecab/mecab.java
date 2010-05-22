@@ -8,6 +8,9 @@ import com.sun.jna.Structure;
 import com.sun.jna.ptr.IntByReference;
 import com.sun.jna.ptr.PointerByReference;
 
+/**
+ * @author nowel
+ */
 public interface mecab {
     
     public static final int MECAB_NOR_NODE = 0;

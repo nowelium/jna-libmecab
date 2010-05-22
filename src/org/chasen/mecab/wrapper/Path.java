@@ -3,6 +3,9 @@ package org.chasen.mecab.wrapper;
 import org.chasen.mecab.mecab.mecab_node_t;
 import org.chasen.mecab.mecab.mecab_path_t;
 
+/**
+ * @author nowel
+ */
 public class Path implements MecabPath<Node, Path> {
     
     protected final mecab_path_t path;

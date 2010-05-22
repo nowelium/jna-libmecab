@@ -4,6 +4,9 @@ import org.chasen.mecab.mecab.mecab_learner_node_t;
 import org.chasen.mecab.mecab.mecab_learner_path_t;
 import org.chasen.mecab.wrapper.type.NodeType;
 
+/**
+ * @author nowel
+ */
 public class LearnerNode implements MecabNode<LearnerNode, LearnerPath> {
     
     protected final mecab_learner_node_t node;

@@ -2,6 +2,9 @@ package org.chasen.mecab.wrapper.type;
 
 import java.util.HashMap;
 
+/**
+ * @author nowel
+ */
 interface Type<T extends Enum<T>> {
     
     public int getValue();

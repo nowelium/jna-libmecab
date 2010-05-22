@@ -14,6 +14,9 @@ import org.chasen.mecab.mecab.mecab_dictionary_info_t;
 import org.chasen.mecab.mecab.mecab_node_t;
 import org.chasen.mecab.mecab.mecab_t;
 
+/**
+ * @author nowel
+ */
 public class Tagger {
     
     protected final mecab_t mecab;

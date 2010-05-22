@@ -1,7 +1,9 @@
 package org.chasen.mecab;
 
+import org.chasen.mecab.wrapper.MecabNode;
 import org.chasen.mecab.wrapper.Node;
 import org.chasen.mecab.wrapper.NodeIterator;
+import org.chasen.mecab.wrapper.Path;
 import org.chasen.mecab.wrapper.Tagger;
 
 public class Iteration {
@@ -14,16 +16,16 @@ public class Iteration {
         Tagger tagger = Tagger.create("-r /opt/local/etc/mecabrc");
         
         // default NodeIterator
-        NodeIterator it = tagger.iterator("庭には二羽ニワトリがいる。");
+        NodeIterator<Node, Path> it = tagger.iterator("庭には二羽ニワトリがいる。");
         while(it.hasNext()){
-            Node node = it.next();
+            MecabNode<Node, Path> node = it.next();
             System.out.println(node.getSurface() + ":" + node.getFeature());
         }
         
         System.out.println("---------------");
         
         // iteratable NodeIterator
-        for(Node node: tagger.iterator("すもももももももものうち")){
+        for(MecabNode<Node, Path> node: tagger.iterator("すもももももももものうち")){
             System.out.println(node.getSurface() + ":" + node.getFeature());
         }
         

@@ -1,5 +1,8 @@
 package org.chasen.mecab.wrapper;
 
+/**
+ * @author nowel
+ */
 public interface MecabPath<N, P> {
     
     public N getRNode();

@@ -2,6 +2,9 @@ package org.chasen.mecab.wrapper;
 
 import org.chasen.mecab.wrapper.type.NodeType;
 
+/**
+ * @author nowel
+ */
 public interface MecabNode<N, P> {
     
     public MecabNode<N, P> getPrev();

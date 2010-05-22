@@ -5,6 +5,9 @@ import org.chasen.mecab.mecab.mecab_node_t;
 import org.chasen.mecab.mecab.mecab_t;
 import org.chasen.mecab.mecab.size_t;
 
+/**
+ * @author nowel
+ */
 public class Mecab extends Function {
 
     public static int mecab_do(String...args){

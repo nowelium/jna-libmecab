@@ -2,6 +2,9 @@ package org.chasen.mecab.wrapper.type;
 
 import org.chasen.mecab.mecab;
 
+/**
+ * @author nowel
+ */
 public enum DictionaryType implements Type<DictionaryType> {
 
     USR_DIC(mecab.MECAB_USR_DIC),

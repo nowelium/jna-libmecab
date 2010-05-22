@@ -3,6 +3,9 @@ package org.chasen.mecab.wrapper;
 import org.chasen.mecab.mecab.mecab_dictionary_info_t;
 import org.chasen.mecab.wrapper.type.DictionaryType;
 
+/**
+ * @author nowel
+ */
 public class DictionaryInfo {
     
     protected final mecab_dictionary_info_t dictionary;

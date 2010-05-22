@@ -4,6 +4,9 @@ import com.sun.jna.Library;
 import com.sun.jna.Native;
 import com.sun.jna.NativeLibrary;
 
+/**
+ * @author nowel
+ */
 public class LibMecab {
     
     public static interface IF extends mecab, Library {
