@@ -245,14 +245,14 @@ public interface mecab {
     }
     
     public static class mecab_path_t extends Structure {
-        // C type: struct mecab_learner_node_t*
-        public mecab_learner_node_t.ByReference rnode;
-        // C type: struct mecab_learner_path_t*
-        public mecab_learner_path_t.ByReference rnext;
-        // C type: struct mecab_learner_node_t*
-        public mecab_learner_node_t.ByReference lnode;
-        // C type: struct mecab_learner_path_t*
-        public mecab_learner_path_t.ByReference lnext;
+        // C type: struct mecab_node_t*
+        public mecab_node_t.ByReference rnode;
+        // C type: struct mecab_path_t*
+        public mecab_path_t.ByReference rnext;
+        // C type: struct mecab_node_t*
+        public mecab_node_t.ByReference lnode;
+        // C type: struct mecab_path_t*
+        public mecab_path_t.ByReference lnext;
         // C type: int
         public int cost;
         // C type: const float
@@ -262,19 +262,19 @@ public interface mecab {
             super();
             setAutoSynch(false);
         }
-        public mecab_learner_node_t.ByReference rnode(){
+        public mecab_node_t.ByReference rnode(){
             readField("rnode");
             return rnode;
         }
-        public mecab_learner_path_t.ByReference rnext(){
+        public mecab_path_t.ByReference rnext(){
             readField("rnext");
             return rnext;
         }
-        public mecab_learner_node_t.ByReference lnode(){
+        public mecab_node_t.ByReference lnode(){
             readField("lnode");
             return lnode;
         }
-        public mecab_learner_path_t.ByReference lnext(){
+        public mecab_path_t.ByReference lnext(){
             readField("lnext");
             return lnext;
         }

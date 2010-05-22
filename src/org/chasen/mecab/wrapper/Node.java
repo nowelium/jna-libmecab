@@ -4,7 +4,7 @@ import org.chasen.mecab.mecab.mecab_node_t;
 import org.chasen.mecab.mecab.mecab_path_t;
 import org.chasen.mecab.wrapper.type.NodeType;
 
-public class Node {
+public class Node implements MecabNode<Node, Path> {
     
     protected final mecab_node_t node;
     
@@ -61,7 +61,7 @@ public class Node {
     }
     
     protected mecab_path_t.ByReference rpath = null;
-    public Path getRpath(){
+    public Path getRPath(){
         if(null == rpath){
             rpath = node.rpath();
         }

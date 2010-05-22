@@ -1,10 +1,9 @@
 package org.chasen.mecab.wrapper;
 
-import org.chasen.mecab.mecab.mecab_learner_node_t;
-import org.chasen.mecab.mecab.mecab_learner_path_t;
+import org.chasen.mecab.mecab.mecab_node_t;
 import org.chasen.mecab.mecab.mecab_path_t;
 
-public class Path {
+public class Path implements MecabPath<Node, Path> {
     
     protected final mecab_path_t path;
     
@@ -12,8 +11,8 @@ public class Path {
         this.path = path;
     }
     
-    protected mecab_learner_node_t.ByReference rnode = null;
-    public LearnerNode getRNode() {
+    protected mecab_node_t.ByReference rnode = null;
+    public Node getRNode() {
         if(null == rnode){
             rnode = path.rnode();
         }
@@ -21,11 +20,11 @@ public class Path {
         if(null == rnode){
             return null;
         }
-        return new LearnerNode(rnode);
+        return new Node(rnode);
     }
 
-    protected mecab_learner_path_t.ByReference rnext = null;
-    public LearnerPath getRNext() {
+    protected mecab_path_t.ByReference rnext = null;
+    public Path getRNext() {
         if(null == rnext){
             rnext = path.rnext();
         }
@@ -33,11 +32,11 @@ public class Path {
         if(null == rnext){
             return null;
         }
-        return new LearnerPath(rnext);
+        return new Path(rnext);
     }
 
-    protected mecab_learner_node_t.ByReference lnode = null;
-    public LearnerNode getLNode() {
+    protected mecab_node_t.ByReference lnode = null;
+    public Node getLNode() {
         if(null == lnode){
             lnode = path.lnode();
         }
@@ -45,11 +44,11 @@ public class Path {
         if(null == lnode){
             return null;
         }
-        return new LearnerNode(lnode);
+        return new Node(lnode);
     }
 
-    protected mecab_learner_path_t.ByReference lnext = null;
-    public LearnerPath getLNext() {
+    protected mecab_path_t.ByReference lnext = null;
+    public Path getLNext() {
         if(null == lnext){
             lnext = path.lnext();
         }
@@ -57,7 +56,7 @@ public class Path {
         if(null == lnext){
             return null;
         }
-        return new LearnerPath(lnext);
+        return new Path(lnext);
     }
 
     protected int cost = -1;

@@ -66,19 +66,19 @@ public class Tagger {
         return create(node_t);
     }
     
-    public NodeIterator iterator(String str){
+    public NodeIterator<Node, Path> iterator(String str){
         return create(parseToNode(str));
     }
     
-    public NodeIterator iterator(String str, long size){
+    public NodeIterator<Node, Path> iterator(String str, long size){
         return create(parseToNode(str, size));
     }
     
-    public NodeIterator iterator(String str, NodeFilter filter){
+    public NodeIterator<Node, Path> iterator(String str, NodeFilter<Node, Path> filter){
         return create(parseToNode(str), filter);
     }
     
-    public NodeIterator iterator(String str, long size, NodeFilter filter){
+    public NodeIterator<Node, Path> iterator(String str, long size, NodeFilter<Node, Path> filter){
         return create(parseToNode(str, size), filter);
     }
     
@@ -86,12 +86,12 @@ public class Tagger {
         return new Node(node_t);
     }
     
-    protected NodeIterator create(Node node){
-        return new NodeIterator(node);
+    protected NodeIterator<Node, Path> create(Node node){
+        return new NodeIterator<Node, Path>(node);
     }
 
-    protected NodeIterator create(Node node, NodeFilter filter){
-        return new NodeIterator(node, filter);
+    protected NodeIterator<Node, Path> create(Node node, NodeFilter<Node, Path> filter){
+        return new NodeIterator<Node, Path>(node, filter);
     }
     
     public DictionaryInfo getDictionaryInfo(){

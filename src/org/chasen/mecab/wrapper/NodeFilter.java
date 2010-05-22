@@ -1,7 +1,7 @@
 package org.chasen.mecab.wrapper;
 
-public interface NodeFilter {
+public interface NodeFilter<N, P> {
     
-    public boolean accept(Node node);
+    public boolean accept(MecabNode<N, P> node);
 
 }

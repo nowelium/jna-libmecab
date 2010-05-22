@@ -3,7 +3,7 @@ package org.chasen.mecab.wrapper;
 import org.chasen.mecab.mecab.mecab_learner_node_t;
 import org.chasen.mecab.mecab.mecab_learner_path_t;
 
-public class LearnerPath {
+public class LearnerPath implements MecabPath<LearnerNode, LearnerPath>{
     
     protected final mecab_learner_path_t path;
     
