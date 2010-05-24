@@ -21,14 +21,17 @@ public class Tagger {
     
     protected final mecab_t mecab;
     
+    @SuppressWarnings("unused")
+    private final Object finalizer = new Object(){
+        @Override
+        protected void finalize() throws Throwable {
+            super.finalize();
+            mecab_destroy(mecab);
+        }
+    };
+    
     protected Tagger(mecab_t mecab){
         this.mecab = mecab;
-    }
-    
-    @Override
-    protected void finalize() throws Throwable {
-        super.finalize();
-        mecab_destroy(mecab);
     }
     
     public String parse(String str){

@@ -28,7 +28,6 @@ public class Iteration {
         for(MecabNode<Node, Path> node: tagger.iterator("すもももももももものうち")){
             System.out.println(node.getSurface() + ":" + node.getFeature());
         }
-        
     }
 
 }
