@@ -105,15 +105,15 @@ public class Tagger {
         return new DictionaryInfo(dict);
     }
     
-    public static Tagger create(){
+    public synchronized static Tagger create(){
         return new Tagger(mecab_new());
     }
     
-    public static Tagger create(String arg){
+    public synchronized static Tagger create(String arg){
         return new Tagger(mecab_new(arg));
     }
     
-    public static Tagger create(String...args){
+    public synchronized static Tagger create(String...args){
         return new Tagger(mecab_new(args));
     }
     

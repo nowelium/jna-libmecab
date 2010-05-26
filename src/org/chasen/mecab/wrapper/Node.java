@@ -1,5 +1,8 @@
 package org.chasen.mecab.wrapper;
 
+import java.nio.ByteBuffer;
+import java.nio.charset.Charset;
+
 import org.chasen.mecab.mecab.mecab_node_t;
 import org.chasen.mecab.mecab.mecab_path_t;
 import org.chasen.mecab.wrapper.type.NodeType;
@@ -92,13 +95,15 @@ public class Node implements MecabNode<Node, Path> {
         if(null == surface){
             surface = node.surface();
         }
+
+        // TODO: this should not be hardcoded to 1024 bytes
+        ByteBuffer buffer = ByteBuffer.allocate(1024);
+        buffer.put(surface.getBytes());
         
-        short length = getLength();
-        byte[] surfaceBytes = surface.getBytes();
-        
-        byte[] result = new byte[length];
-        System.arraycopy(surfaceBytes, 0, result, 0, length);
-        return new String(result);
+        int length = getLength();
+        buffer.position(0);
+        buffer.limit(length);
+        return Charset.forName("UTF-8").decode(buffer).toString();
     }
     
     protected String feature = null;

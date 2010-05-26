@@ -206,6 +206,11 @@ public interface mecab {
             super();
             setAutoSynch(false);
         }
+        public Object readField(String field){
+            synchronized(this){
+                return super.readField(field);
+            }
+        }
         public String filename(){
             readField("filename");
             return filename;
@@ -265,6 +270,11 @@ public interface mecab {
             super();
             setAutoSynch(false);
         }
+        public Object readField(String field){
+            synchronized(this){
+                return super.readField(field);
+            }
+        }
         public mecab_node_t.ByReference rnode(){
             readField("rnode");
             return rnode;
@@ -315,6 +325,11 @@ public interface mecab {
         public mecab_learner_path_t(){
             super();
             setAutoSynch(false);
+        }
+        public Object readField(String field){
+            synchronized(this){
+                return super.readField(field);
+            }
         }
         public mecab_learner_node_t.ByReference rnode(){
             readField("rnode");
@@ -405,6 +420,13 @@ public interface mecab {
             super();
             setAutoSynch(false);
         }
+        
+        public Object readField(String field){
+            synchronized(this){
+                return super.readField(field);
+            }
+        }
+        
         public mecab_node_t.ByReference prev(){
             readField("prev");
             return prev;
@@ -566,6 +588,13 @@ public interface mecab {
             super();
             setAutoSynch(false);
         }
+        
+        public Object readField(String field){
+            synchronized(this){
+                return super.readField(field);
+            }
+        }
+        
         public mecab_learner_node_t.ByReference prev(){
             readField("prev");
             return prev;
