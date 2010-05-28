@@ -9,9 +9,19 @@ import org.chasen.mecab.mecab.size_t;
  * @author nowel
  */
 public class Mecab extends Function {
+    
+    protected static String[] convertArgs(String...args){
+        String[] mecabArgs = new String[args.length + 1];
+        mecabArgs[0] = "mecab";
+        for(int i = 0; i < args.length; ++i){
+            mecabArgs[i + 1] = args[i];
+        }
+        return mecabArgs;
+    }
 
     public static int mecab_do(String...args){
-        return getMecab().mecab_do(args.length, args);
+        String[] mecabArgs = convertArgs(args);
+        return getMecab().mecab_do(mecabArgs.length, mecabArgs);
     }
     
     public static mecab_t mecab_new(){
@@ -19,7 +29,8 @@ public class Mecab extends Function {
     }
     
     public static mecab_t mecab_new(String...args){
-        return getMecab().mecab_new(args.length, args);
+        String[] mecabArgs = convertArgs(args);
+        return getMecab().mecab_new(mecabArgs.length, mecabArgs);
     }
     
     public static mecab_t mecab_new(String arg){
@@ -99,22 +110,27 @@ public class Mecab extends Function {
     }
     
     public static int mecab_dict_index(String...args){
-        return getMecab().mecab_dict_index(args.length, args);
+        String[] mecabArgs = convertArgs(args);
+        return getMecab().mecab_dict_index(mecabArgs.length, mecabArgs);
     }
     
     public static int mecab_dict_gen(String...args){
-        return getMecab().mecab_dict_gen(args.length, args);
+        String[] mecabArgs = convertArgs(args);
+        return getMecab().mecab_dict_gen(mecabArgs.length, mecabArgs);
     }
     
     public static int mecab_cost_train(String...args){
-        return getMecab().mecab_cost_train(args.length, args);
+        String[] mecabArgs = convertArgs(args);
+        return getMecab().mecab_cost_train(mecabArgs.length, mecabArgs);
     }
     
     public static int mecab_system_eval(String...args){
-        return getMecab().mecab_system_eval(args.length, args);
+        String[] mecabArgs = convertArgs(args);
+        return getMecab().mecab_system_eval(mecabArgs.length, mecabArgs);
     }
     
     public static int mecab_test_gen(String...args){
-        return getMecab().mecab_test_gen(args.length, args);
+        String[] mecabArgs = convertArgs(args);
+        return getMecab().mecab_test_gen(mecabArgs.length, mecabArgs);
     }
 }
