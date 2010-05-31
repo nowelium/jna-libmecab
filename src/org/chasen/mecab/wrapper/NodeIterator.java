@@ -9,7 +9,7 @@ import org.chasen.mecab.wrapper.type.NodeType;
  */
 public class NodeIterator<N, P> implements Iterator<MecabNode<N, P>>, Iterable<MecabNode<N, P>> {
 
-    protected static class defaultFilter<N, P> implements NodeFilter<N, P> {
+    public static class DefaultFilter<N, P> implements NodeFilter<N, P> {
         public boolean accept(MecabNode<N, P> node) {
             if(null == node){
                 return false;
@@ -30,7 +30,7 @@ public class NodeIterator<N, P> implements Iterator<MecabNode<N, P>>, Iterable<M
     private MecabNode<N, P> node;
     
     protected NodeIterator(MecabNode<N, P> node){
-        this(node, new defaultFilter<N, P>());
+        this(node, new DefaultFilter<N, P>());
     }
     
     protected NodeIterator(MecabNode<N, P> node, NodeFilter<N, P> filter){
