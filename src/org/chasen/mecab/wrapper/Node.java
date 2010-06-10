@@ -96,13 +96,19 @@ public class Node implements MecabNode<Node, Path> {
             surface = node.surface();
         }
 
-        // TODO: this should not be hardcoded to 1024 bytes
-        ByteBuffer buffer = ByteBuffer.allocate(1024);
-        buffer.put(surface.getBytes());
+        final int length = getLength();
+        final byte[] bytes = surface.getBytes();
         
-        int length = getLength();
-        buffer.position(0);
-        buffer.limit(length);
+        // TODO: this should not be hardcoded to 1024 bytes
+        ByteBuffer buffer = ByteBuffer.allocateDirect(1024);
+        if(bytes.length < length){
+            buffer.position(0);
+            buffer.limit(length);
+            buffer.put(bytes);
+        } else {
+            buffer.put(bytes, 0, length);
+        }
+        
         return Charset.forName("UTF-8").decode(buffer).toString();
     }
     
