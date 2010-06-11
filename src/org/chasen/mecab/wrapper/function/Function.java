@@ -9,7 +9,7 @@ import org.chasen.mecab.mecab;
 abstract class Function {
     
     public static mecab getMecab(){
-        return LibMecab.mecab;
+        return LibMecab.getMecab();
     }
 
 }

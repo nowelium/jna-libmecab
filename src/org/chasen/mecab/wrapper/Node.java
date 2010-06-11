@@ -1,6 +1,5 @@
 package org.chasen.mecab.wrapper;
 
-import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 
 import org.chasen.mecab.mecab.mecab_node_t;
@@ -11,6 +10,10 @@ import org.chasen.mecab.wrapper.type.NodeType;
  * @author nowel
  */
 public class Node implements MecabNode<Node, Path> {
+    
+    protected static final String CHARSET_NAME = "UTF-8";
+    
+    protected static final Charset charset = Charset.forName(CHARSET_NAME);
     
     protected final mecab_node_t node;
     
@@ -98,18 +101,9 @@ public class Node implements MecabNode<Node, Path> {
 
         final int length = getLength();
         final byte[] bytes = surface.getBytes();
-        
-        // TODO: this should not be hardcoded to 1024 bytes
-        ByteBuffer buffer = ByteBuffer.allocateDirect(1024);
-        if(bytes.length < length){
-            buffer.position(0);
-            buffer.limit(length);
-            buffer.put(bytes);
-        } else {
-            buffer.put(bytes, 0, length);
-        }
-        
-        return Charset.forName("UTF-8").decode(buffer).toString();
+        final byte[] buffer = new byte[length];
+        System.arraycopy(bytes, 0, buffer, 0, length);
+        return new String(buffer);
     }
     
     protected String feature = null;
